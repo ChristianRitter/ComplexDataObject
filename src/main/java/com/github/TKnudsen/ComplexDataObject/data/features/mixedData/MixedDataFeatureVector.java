@@ -40,6 +40,14 @@ public class MixedDataFeatureVector extends AbstractFeatureVector<Object, MixedD
 	}
 
 	@Override
+	public AbstractFeatureVector<Object, MixedDataFeature> getCopy() {
+		MixedDataFeatureVector fv = new MixedDataFeatureVector(this.getVectorRepresentation());
+		fv.setName(this.getName());
+		fv.setDescription(this.getDescription());
+		return fv;
+	}
+
+	@Override
 	public MixedDataFeatureVector subTuple(int fromIndex, int toIndex) {
 		if (featuresList != null)
 			return new MixedDataFeatureVector(featuresList.subList(fromIndex, toIndex));

@@ -307,4 +307,6 @@ public abstract class AbstractFeatureVector<O, F extends Feature<O>> extends Key
 
 		return featuresMap;
 	}
+
+	public abstract AbstractFeatureVector<O, F> getCopy();
 }

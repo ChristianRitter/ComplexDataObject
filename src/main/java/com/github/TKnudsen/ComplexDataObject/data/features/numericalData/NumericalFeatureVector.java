@@ -43,6 +43,14 @@ public class NumericalFeatureVector extends AbstractFeatureVector<Double, Numeri
 	}
 
 	@Override
+	public AbstractFeatureVector<Double, NumericalFeature> getCopy() {
+		NumericalFeatureVector fv = new NumericalFeatureVector(this.getVectorRepresentation());
+		fv.setName(this.getName());
+		fv.setDescription(this.getDescription());
+		return fv;
+	}
+
+	@Override
 	public NumericalFeatureVector subTuple(int fromIndex, int toIndex) {
 		return new NumericalFeatureVector(featuresList.subList(fromIndex, toIndex));
 	}
